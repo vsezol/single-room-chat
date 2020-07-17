@@ -3,3 +3,16 @@
     Chat
   </div>
 </template>
+
+<script>
+import { mapState } from 'vuex'
+export default {
+  name: 'Chat',
+  beforeMount() {
+    if (!this.isLogged) this.$router.push('login')
+  },
+  computed: {
+    ...mapState('login', ['isLogged'])
+  }
+}
+</script>
