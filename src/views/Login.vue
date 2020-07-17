@@ -11,14 +11,14 @@
           dark
         ></v-color-picker>
         <v-text-field
-          v-model="name"
-          :error-messages="nameErrors"
+          v-model.trim="nick"
+          :error-messages="nickErrors"
           :counter="16"
           label="Nick"
           required
           dark
-          @input="$v.name.$touch()"
-          @blur="$v.name.$touch()"
+          @input="$v.nick.$touch()"
+          @blur="$v.nick.$touch()"
         ></v-text-field>
         <v-btn class="submit-btn d-block" @click="submit">login</v-btn>
       </form>
@@ -27,10 +27,35 @@
 </template>
 
 <script>
+import { required, minLength, maxLength } from 'vuelidate/lib/validators'
+
 export default {
   data() {
     return {
-      color: ''
+      color: '',
+      nick: ''
+    }
+  },
+  validations: {
+    nick: {
+      required,
+      minLength: minLength(4),
+      maxLength: maxLength(10)
+    }
+  },
+  methods: {
+    submit() {
+      console.log(this.color, this.nick)
+    }
+  },
+  computed: {
+    nickErrors() {
+      const errors = []
+      if (!this.$v.nick.$dirty) return errors
+      !this.$v.nick.required && errors.push('Nick is required.')
+      !this.$v.nick.minLength && errors.push('Min length 4.')
+      !this.$v.nick.maxLength && errors.push('Max length 16.')
+      return errors
     }
   }
 }
