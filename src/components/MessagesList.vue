@@ -52,4 +52,10 @@ export default {
   flex-grow: 1
   background: #272727
   overflow-y: scroll
+  &::-webkit-scrollbar
+    width: 10px
+    background: #272727
+
+  &::-webkit-scrollbar-thumb
+    background: #C1C1C1
 </style>

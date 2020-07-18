@@ -14,14 +14,9 @@ const hexa2rgba = hexa => {
 const login = {
   namespaced: true,
   state: {
-    // for dev
-    isLogged: true,
+    isLogged: false,
     color: '',
-    nick: 'vsezol'
-    // for prod
-    // isLogged: false,
-    // color: '',
-    // nick: ''
+    nick: ''
   },
   mutations: {
     login(state, { color, nick }) {
