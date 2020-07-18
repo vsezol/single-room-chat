@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 import MessagesList from '@/components/MessagesList'
 import CreateMessage from '@/components/CreateMessage'
@@ -22,6 +22,12 @@ export default {
   components: {
     MessagesList,
     CreateMessage
+  },
+  methods: {
+    ...mapActions('chat', ['clearMessages'])
+  },
+  beforeDestroy() {
+    this.clearMessages()
   }
 }
 </script>

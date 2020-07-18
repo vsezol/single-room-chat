@@ -5,7 +5,6 @@ const chat = {
   namespaced: true,
   state: {
     messages: [],
-    beginLen: 20,
     loading: true,
     error: null
   },
