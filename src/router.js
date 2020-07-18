@@ -8,8 +8,8 @@ import NotFound from '@/views/NotFound'
 Vue.use(Router)
 export default new Router({
   routes: [
-    { path: '/chat', component: Chat },
-    { path: '/', component: Login },
+    { path: '/', component: Chat },
+    { path: '/login', component: Login },
     { path: '*', component: NotFound }
   ],
   mode: 'history'

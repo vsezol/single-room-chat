@@ -49,7 +49,7 @@ export default {
     submit() {
       if (!this.nickErrors.length && this.nick) {
         this.login({ color: this.color, nick: this.nick })
-        this.$router.push({ path: '/chat' })
+        this.$router.push({ path: '/' })
       }
     }
   },

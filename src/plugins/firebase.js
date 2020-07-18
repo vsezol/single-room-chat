@@ -25,4 +25,5 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig)
 const db = firebase.database()
-export default db
+const messagesRef = db.ref('messages')
+export { db, messagesRef }
