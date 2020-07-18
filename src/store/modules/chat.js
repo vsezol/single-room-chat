@@ -4,9 +4,9 @@ import actions from '../actions/chat'
 const chat = {
   namespaced: true,
   state: {
-    messages: null,
+    messages: [],
     beginLen: 20,
-    loading: false,
+    loading: true,
     error: null
   },
   mutations,

@@ -9,15 +9,15 @@ import {
 
 export default {
   [START_GET_BEGIN_MESSAGES](state) {
-    state.messages = null
-    state.logading = true
+    state.messages = []
+    state.loading = true
   },
   [SUCCESS_GET_BEGIN_MESSAGES](state, payload) {
     state.messages = payload
-    state.logading = false
+    state.loading = false
   },
   [ERROR_GET_BEGIN_MESSAGES](state, payload) {
-    state.logading = false
+    state.loading = false
     state.error = payload
   },
   [GET_NEW_MESSAGE](state, payload) {

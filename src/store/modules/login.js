@@ -1,9 +1,14 @@
 const login = {
   namespaced: true,
   state: {
-    isLogged: false,
-    color: '',
-    nick: ''
+    // for dev
+    isLogged: true,
+    color: '#FF00AAFF',
+    nick: 'vsezol'
+    // for prod
+    // isLogged: false,
+    // color: '',
+    // nick: ''
   },
   mutations: {
     login(state, { color, nick }) {

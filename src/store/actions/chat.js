@@ -11,19 +11,15 @@ import {
 import { messagesRef } from '@/plugins/firebase'
 
 export default {
-  startGetBeginMessages({ commit }) {
-    commit(START_GET_BEGIN_MESSAGES)
-  },
-  successGetBeginMessages({ commit }, payload) {
-    commit(SUCCESS_GET_BEGIN_MESSAGES, payload)
-  },
-  errorGetBeginMessages({ commit }, payload) {
-    commit(ERROR_GET_BEGIN_MESSAGES, payload)
-  },
   async getBeginMessages({ commit }) {
-    const snapshot = await messagesRef.limitToLast(20).once('value')
-    const messages = snapshot.val()
-    commit(SUCCESS_GET_BEGIN_MESSAGES, messages)
+    commit(START_GET_BEGIN_MESSAGES)
+    try {
+      const snapshot = await messagesRef.limitToLast(20).once('value')
+      const messages = snapshot.val()
+      commit(SUCCESS_GET_BEGIN_MESSAGES, messages)
+    } catch (error) {
+      commit(ERROR_GET_BEGIN_MESSAGES, error)
+    }
   },
   watchNewMessages({ commit }) {
     messagesRef.off('child_added')
