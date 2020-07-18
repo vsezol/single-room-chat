@@ -4,7 +4,6 @@
       Single Room Shat
     </h2>
     <v-spacer></v-spacer>
-
     <v-icon v-if="isLogged" @click="logoutHandler">mdi-logout</v-icon>
   </v-app-bar>
 </template>

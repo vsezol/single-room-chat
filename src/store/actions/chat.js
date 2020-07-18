@@ -11,12 +11,10 @@ export default {
   watchNewMessages({ commit }) {
     messagesRef.off('child_added')
     messagesRef.off('value')
-
     messagesRef.limitToLast(20).on('child_added', data => {
       const message = data.val()
       commit(GET_NEW_MESSAGE, message)
     })
-
     messagesRef.on('value', data => {
       if (!data.val()) {
         commit(ERROR_GET_NEW_MESSAGE)

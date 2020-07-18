@@ -5,7 +5,6 @@
       :error-messages="textErrors"
       @input="$v.text.$touch()"
       @blur="$v.text.$touch()"
-      @keyup.enter.exact="sendHandler"
       rows="1"
       dark
       counter="256"
