@@ -1,14 +1,13 @@
 <template>
   <v-container class="mess-list rounded">
     <div v-if="!loading">
-      <Message v-for="(message, i) of messagesArr" :key="i">
-        <template v-slot:nick>
-          {{message.nick}}
-        </template>
-        <template v-slot:text>
-          {{message.text}}
-        </template>
-      </Message>
+      <Message
+        v-for="({ color, nick, text }, i) of messagesArr"
+        :key="i"
+        :color="color"
+        :nick="nick"
+        :text="text"
+      />
     </div>
   </v-container>
 </template>
