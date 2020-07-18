@@ -49,6 +49,7 @@ export default {
 
 <style lang="sass">
 .mess-list
+  flex-grow: 1
   background: #272727
   overflow-y: scroll
   &::-webkit-scrollbar
