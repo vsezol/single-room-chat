@@ -28,7 +28,7 @@
 
 <script>
 import { required, minLength, maxLength } from 'vuelidate/lib/validators'
-import { mapMutations } from 'vuex'
+import { mapMutations, mapState } from 'vuex'
 
 export default {
   data() {
@@ -45,15 +45,16 @@ export default {
     }
   },
   methods: {
-    ...mapMutations('login', ['login']),
+    ...mapMutations('login', ['login', 'logout']),
     submit() {
       if (!this.nickErrors.length && this.nick) {
         this.login({ color: this.color, nick: this.nick })
-        this.$router.push({ path: '/' })
+        this.$router.push({ path: '/chat' })
       }
     }
   },
   computed: {
+    ...mapState('login', ['isLogged']),
     nickErrors() {
       const errors = []
       if (!this.$v.nick.$dirty) return errors
@@ -62,6 +63,9 @@ export default {
       !this.$v.nick.maxLength && errors.push('Max length 16.')
       return errors
     }
+  },
+  beforeMount() {
+    if (this.isLogged) this.logout()
   }
 }
 </script>

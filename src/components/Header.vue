@@ -22,7 +22,7 @@ export default {
     ...mapMutations('login', ['logout']),
     logoutHandler() {
       this.logout()
-      this.$router.push({ path: 'login' })
+      this.$router.push({ path: '/' })
     }
   },
   computed: mapState('login', ['isLogged'])

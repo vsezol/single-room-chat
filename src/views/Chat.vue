@@ -9,7 +9,7 @@ import { mapState } from 'vuex'
 export default {
   name: 'Chat',
   beforeMount() {
-    if (!this.isLogged) this.$router.push('login')
+    if (!this.isLogged) this.$router.push('/')
   },
   computed: {
     ...mapState('login', ['isLogged'])
